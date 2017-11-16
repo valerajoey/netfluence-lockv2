@@ -1,0 +1,18 @@
+<ion-content padding>
+ 	<ion-item>
+	    <ion-label floating >User Name</ion-label>
+	    <ion-input type="text" [(ngModel)]="profile.username"></ion-input>
+	</ion-item>
+
+	<ion-item>
+	    <ion-label floating >First Name </ion-label>
+	    <ion-input type="password" [(ngModel)]="profile.firstName"></ion-input>
+	</ion-item>
+
+	<ion-item>
+	    <ion-label floating >Last Name </ion-label>
+	    <ion-input type="password" [(ngModel)]="profile.lastName"></ion-input>
+	</ion-item>
+
+	<button  ion-button block (click) = "createProfile()">Create Profile</button>
+</ion-content>

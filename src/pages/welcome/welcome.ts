@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { LoginPage } from '../login/login'; //importing login page
 import { SignupPage } from '../signup/signup'; // importing sign up
-import { User } from "../../models/user";
 
 /**
  * Generated class for the WelcomePage page.

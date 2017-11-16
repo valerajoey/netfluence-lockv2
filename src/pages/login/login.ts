@@ -3,8 +3,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { User } from "../../models/user";
 import { SignupPage } from '../signup/signup'; // importing sign up
-import { AngularFireAuth } from 'angularfire2/auth';
 import { WelcomePage } from '../welcome/welcome';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { HomePage } from '../home/home';
+import { ProfilePage } from '../profile/profile';
+import { TabsPage } from '../tabs/tabs';
 
 
 @IonicPage()
@@ -24,7 +28,7 @@ export class LoginPage {
     try {
       const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       if (result) {
-        this.navCtrl.push('WelcomePage');
+        this.navCtrl.setRoot(ProfilePage);
       }  
     }
     catch (e) {
@@ -34,7 +38,7 @@ export class LoginPage {
 
 
   signUp(){
-  	this.navCtrl.push(SignupPage);
+  	this.navCtrl.push(ProfilePage);
   }
 
   ionViewDidLoad() {
