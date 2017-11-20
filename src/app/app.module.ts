@@ -10,17 +10,19 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { ProfilePage } from '../pages/profile/profile';
+
+
+
 import { FIREBASE_CONFIG } from './app.firebase.config';
-
-
-
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth'
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+//import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
+//import { FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+
 
 @NgModule({
   declarations: [
@@ -31,14 +33,17 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    //FirebaseObjectObservable
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +54,9 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    ProfilePage
+
   ],
   providers: [
     StatusBar,

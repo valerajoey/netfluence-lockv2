@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Profile } from '../../models/profile'
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+
 
 
 import { TabsPage } from '../tabs/tabs';
@@ -32,7 +33,7 @@ export class ProfilePage {
 
   createProfile(){
   	this.afAuth.authState.take(1).subscribe( auth =>{
-  		this.afDatabase.list(`profile/${auth.uid}`).push(this.profile)
+  		this.afDatabase.object(`profile/${auth.uid}`).set(this.profile)
   		.then(()=> this.navCtrl.push(TabsPage));
   	})
 

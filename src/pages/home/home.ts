@@ -1,15 +1,20 @@
 import { Component } from '@angular/core';
 import {  NavController, ToastController } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
 
+import { Profile } from './../../models/profile'
+import { AngularFireAuth } from 'angularfire2/auth';
+//import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
 
 @Component({
   selector: 'page-contact',
   templateUrl: 'home.html'
 })
 export class HomePage {
+	profileData: FirebaseObjectObservable<Profile>
 
-  constructor(  private afAuth: AngularFireAuth, private toast: ToastController,
+  constructor(  private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase,
+  				 private toast: ToastController,
   				public navCtrl: NavController
   			 ) {
 
@@ -22,6 +27,8 @@ export class HomePage {
 	    		message: `Welcome to APP_NAME, ${data.email}`,
 	    		duration: 3000
 	    	}).present();
+
+	    	this.profileData = this.afDatabase.object(`profile/${data.uid}`);
 	    } 
 	    else {
 	    	this.toast.create({

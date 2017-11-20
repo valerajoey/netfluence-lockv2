@@ -38,7 +38,7 @@ export class LoginPage {
 
 
   signUp(){
-  	this.navCtrl.push(ProfilePage);
+  	this.navCtrl.push(TabsPage);
   }
 
   ionViewDidLoad() {
